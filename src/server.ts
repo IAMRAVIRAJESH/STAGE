@@ -19,7 +19,7 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-let server;
+let server: any;
 
 const startServer = async () => {
   try {
