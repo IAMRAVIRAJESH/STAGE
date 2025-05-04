@@ -11,6 +11,14 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST ?? '',
     dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        // You might need to specify a CA certificate if Render provides one.
+        // For many Render setups, simply `require: true` is enough.
+        // ca: fs.readFileSync('./path/to/your/render_ca.crt').toString(),
+      },
+    },
     logging: false,
   }
 );
