@@ -1,6 +1,9 @@
 # STAGE
 
-This project is built using Node.JS, Express.JS, TypeScript, PostgreSQL and deployed on render. CI/CD pipeline is implemented using github actions where I have added all the linting and neccessary checks for code quality to make sure this application/feature is production grade.
+# Design choices
+This project is built using Node.JS, Express.JS, TypeScript, PostgreSQL database and deployed on render. CI/CD pipeline is implemented using github actions where I have added all the linting and neccessary checks for code quality to make sure this application/feature is production grade.
+
+To make this extremely performant I have created a junction table that will be connected with user, movies, and tvshows table. With this approach I don't have to create extra columns on user, movies, and tvshows table and I can use the existing data present in them with association & relaions defined in my_list table between user and movies, tvshows. I have also applied indexing for uniqueness in my_list tbale and on user_id column in order to fetch the list from both the table realated with each user.
 
 This project is running on https://stage-u8ep.onrender.com
 APIs include:
@@ -10,7 +13,7 @@ c. Delete an item from my list
 
 I have added a postman collection where all the APIs with payload and headers are present so you can import that file and test the APIs.
 
-
+# Setting up the project on local machine
 If you want to setup the project on your local then you will need to follow the below steps:
 i. Clone the code from https://github.com/IAMRAVIRAJESH/STAGE.git. Take pull from main, code is present there only.
    After that run npm i to install all the packages for the project.
