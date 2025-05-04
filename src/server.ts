@@ -1,6 +1,5 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { initializeModels, associateModels } from './config/database';
 import routes from './routes';
 
 dotenv.config();
@@ -20,13 +19,11 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
+let server: any;
+
 const startServer = async () => {
   try {
-    const models = initializeModels();
-    associateModels(models);
-    console.log('Database synchronized successfully');
-
-    app.listen(PORT, () => {
+    server = app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
@@ -36,3 +33,5 @@ const startServer = async () => {
 };
 
 startServer();
+
+export { app, server };

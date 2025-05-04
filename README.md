@@ -13,6 +13,8 @@ a. Get my list for user
 b. Add an item to my list
 c. Delete an item from my list
 
+This app also contains test case in tests folder under src
+
 I have added a postman collection where all the APIs with payload and headers are present so you can import that file and test the APIs.
 
 # Setting up the project on local machine
@@ -29,9 +31,13 @@ iii. Create an .env file and add the environment values
         DB_USER = (your root username)
         DB_NAME = Stage
 
-iv. add these lines to your databse.ts file 
-     a. import { sequelize } from './config/database';
-     b. add await sequelize.sync({ alter: true }); at line no 27 after associateModels(models); line.
+iv. add these lines to server.ts file under src directory
+     a. import { sequelize, initializeModels, associateModels } from './config/database';
+     b. add the below lines inside startServer function at line no. 25
+        const models = initializeModels();
+        associateModels(models);
+        await sequelize.sync({ alter: true });
+        console.log('Database synchronized successfully'); at line no 27 after associateModels(models); line.
      This lines will synchronise your local database and create all the necessary tables with required columns, associations, indexes and relationships declared in the model file so you don't have to create schema or anything for that explicitly (after performing the till step vi.).
 
 v. I have added an query.sql file in sql folder under src, after performing all the above steps copy the whole

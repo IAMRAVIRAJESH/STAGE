@@ -11,7 +11,6 @@ class ListService {
     if (process.env.REDIS_URL) {
       redisClient = new Redis(process.env.REDIS_URL);
     } else {
-      console.warn('REDIS_URL environment variable not set. Redis functionality will be disabled.');
       redisClient = undefined as any;
     }
     const cacheKey = `user:${userId}:favorites`;
