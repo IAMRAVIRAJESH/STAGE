@@ -12,6 +12,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "check-format": "prettier --check \"src/**/*.ts\""
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
