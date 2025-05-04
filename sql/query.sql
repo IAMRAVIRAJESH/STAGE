@@ -1,4 +1,6 @@
 ALTER TABLE my_list DROP CONSTRAINT my_list_content_id_fkey;
+DROP INDEX IF EXISTS my_list_user_id;
+CREATE INDEX idx_my_list_user_content_date ON my_list (user_id, content_type, created_at DESC);
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ALTER TABLE users
