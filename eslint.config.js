@@ -1,11 +1,8 @@
-const js = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const prettier = require('eslint-plugin-prettier/recommended');
-const path = require('path');
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import prettier from 'eslint-plugin-prettier/recommended';
 
-const tsconfigRootDir = __dirname;
-
-module.exports = tseslint.config(
+export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   prettier,
@@ -13,14 +10,14 @@ module.exports = tseslint.config(
     languageOptions: {
       parserOptions: {
         project: './tsconfig.json',
-        tsconfigRootDir: tsconfigRootDir,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars':'off',
       '@typescript-eslint/no-require-imports': 'off',
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
