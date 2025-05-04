@@ -7,7 +7,7 @@ afterEach(() => {
 });
 
 describe('List API Integration Tests', () => {
-  describe('GET /api/list', () => {
+  describe('server running endpoint "/"', () => {
     it("should return the user's list with favorite movies and TV shows", async () => {
       const response = await request(app).get('/');
 
