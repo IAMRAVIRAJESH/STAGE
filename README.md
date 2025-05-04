@@ -3,7 +3,9 @@
 # Design choices
 This project is built using Node.JS, Express.JS, TypeScript, PostgreSQL database and deployed on render. CI/CD pipeline is implemented using github actions where I have added all the linting and neccessary checks for code quality to make sure this application/feature is production grade.
 
-To make this extremely performant I have created a junction table that will be connected with user, movies, and tvshows table. With this approach I don't have to create extra columns on user, movies, and tvshows table and I can use the existing data present in them with association & relaions defined in my_list table between user and movies, tvshows. I have also applied indexing for uniqueness in my_list tbale and on user_id column in order to fetch the list from both the table realated with each user.
+To make this extremely performant I have setup a redis server on render an implemented that of find list function in order to maximize the efficiency of the APIs. 
+
+Also I have created a junction table that will be connected with user, movies, and tvshows table. With this approach I don't have to create extra columns on user, movies, and tvshows table and I can use the existing data present in them with association & relaions defined in my_list table between user and movies, tvshows. I have also applied indexing for uniqueness in my_list tbale and indexing on user_id column in order to fetch the data from both the tables related with each user.
 
 This project is running on https://stage-u8ep.onrender.com
 APIs include:
