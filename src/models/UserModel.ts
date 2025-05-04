@@ -1,6 +1,5 @@
 import { UserAttributes } from '../interfaces/UserAttributes';
 import { Model, DataTypes, Sequelize } from 'sequelize';
-import MyListModel from './MyListModel';
 
 export type UserCreationAttributes = UserAttributes;
 

@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { sequelize, initializeModels, associateModels } from './config/database';
+import { initializeModels, associateModels } from './config/database';
 import routes from './routes';
 
 dotenv.config();
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Server is running' });
 });
 
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
@@ -24,8 +24,6 @@ const startServer = async () => {
   try {
     const models = initializeModels();
     associateModels(models);
-    //await sequelize.sync({ alter: true });
-    //await sequelize.sync({ force: true }); //for dropping all tables and data
     console.log('Database synchronized successfully');
 
     app.listen(PORT, () => {

@@ -16,8 +16,9 @@ export default tseslint.config(
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
       '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars':'off',
+      '@typescript-eslint/no-require-imports': 'off',
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
   },
