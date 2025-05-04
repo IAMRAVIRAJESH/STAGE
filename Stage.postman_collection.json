@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "b915e721-7ad0-457f-a328-8dc8da865f5b",
+		"name": "Stage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26988681"
+	},
+	"item": [
+		{
+			"name": "get my list for a user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://stage-u8ep.onrender.com/api/list/?user_id=ffcb0449-7669-4686-b8b9-50e845de6b43",
+					"protocol": "https",
+					"host": [
+						"stage-u8ep",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"list",
+						""
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "ffcb0449-7669-4686-b8b9-50e845de6b43"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add an item to my list",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"afe6e2e6-d3cf-421e-a116-1b52aeff007f\",\r\n    \"content_id\": \"9fb5c7b8-0653-4092-ba00-42dfe82bb728\",\r\n    \"content_type\": \"tvshow\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://stage-u8ep.onrender.com/api/list/add-to-list",
+					"protocol": "https",
+					"host": [
+						"stage-u8ep",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"list",
+						"add-to-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete an item from my list",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://stage-u8ep.onrender.com/api/list/3c26dfbb-2593-4f72-aae4-b62daa52edf7",
+					"protocol": "https",
+					"host": [
+						"stage-u8ep",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"list",
+						"3c26dfbb-2593-4f72-aae4-b62daa52edf7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
