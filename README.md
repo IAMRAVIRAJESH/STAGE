@@ -7,7 +7,7 @@ To make this extremely performant I have setup a redis server on render an imple
 
 Also I have created a junction table that will be connected with user, movies, and tvshows table. With this approach I don't have to create extra columns on user, movies, and tvshows table and I can use the existing data present in them with association & relaions defined in my_list table between user and movies, tvshows. I have also applied indexing for uniqueness in my_list tbale and indexing on user_id column in order to fetch the data from both the tables related with each user.
 
-This project is running on https://stage-u8ep.onrender.com
+This project is running on https://stage-u8ep.onrender.com. Please run the server from render dashboard it will shut down after 1 minute of inactivity. https://dashboard.render.com/web/srv-d09gkeggjchc73901t3g
 APIs include:
 a. Get my list for user
 b. Add an item to my list
